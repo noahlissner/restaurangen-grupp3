@@ -7,7 +7,7 @@ dotenv.config();
 connectDB();
 
 const app: Express = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express");
