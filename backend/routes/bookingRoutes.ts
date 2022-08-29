@@ -5,6 +5,6 @@ import { searchBooking } from "../controllers/bookingControllers/searchBooking";
 const router = express.Router();
 
 router.get("/search", searchBooking);
-router.get("/create", createBooking);
+router.post("/create", createBooking);
 
 export default router;
