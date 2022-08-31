@@ -8,3 +8,31 @@
         object-fit: cover;
     }
 }
+
+#about {
+    margin: 50px 0;
+
+    .about-img-container {
+        width: 100%;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .about-text-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 40px 0;
+
+        h3 {
+            padding: 10px;
+        }
+
+        p {
+            padding: 10px 40px;
+        }
+    }
+}
