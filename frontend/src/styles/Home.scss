@@ -36,3 +36,40 @@
         }
     }
 }
+
+#contact {
+    margin: 100px 0;
+    .contact-text-container {
+        width: 100%;
+
+        h1 {
+            text-align: center;
+        }
+        .contact-info-container {
+            padding: 40px;
+            h2 {
+                color: white;
+            }
+
+            div {
+                margin: 20px 0;
+                .lg-text {
+                    color: white;
+                    font-size: 1.2rem;
+                    border-bottom: 1px solid gray;
+                }
+                .sm-text {
+                    color: white;
+                }
+            }
+        }
+    }
+    .contact-img-container{
+        margin: 40px 0;
+        width: 100%;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
