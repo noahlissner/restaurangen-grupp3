@@ -1,4 +1,4 @@
-export const HamburgerData = [
+export const HamburgerDataLinks = [
   {
     title: "Home",
     path: "/",
@@ -9,14 +9,22 @@ export const HamburgerData = [
     path: "/booking",
     cName: "nav-text",
   },
+];
+
+export const HamburgerDataHashLinks = [
+  {
+    title: "About",
+    path: "/#about",
+    cName: "nav-text",
+  },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/#contact",
     cName: "nav-text",
   },
   {
     title: "Socials",
-    path: "#footer",
+    path: "/#footer",
     cName: "nav-text",
   },
 ];

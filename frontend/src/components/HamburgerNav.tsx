@@ -1,7 +1,11 @@
 import "../styles/HamburgerNav.scss";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HamburgerData } from "../services/HamburgerData";
+import { HashLink } from "react-router-hash-link";
+import {
+  HamburgerDataLinks,
+  HamburgerDataHashLinks,
+} from "../services/HamburgerData";
 import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io5";
 
@@ -24,12 +28,21 @@ export const HamburgerNav = () => {
               <IoIcons.IoClose />
             </Link>
           </li>
-          {HamburgerData.map((data, i) => {
+          {HamburgerDataLinks.map((data, i) => {
             return (
               <li key={i} className={data.cName} onClick={showSidebar}>
                 <Link to={data.path}>
                   <span>{data.title}</span>
                 </Link>
+              </li>
+            );
+          })}
+          {HamburgerDataHashLinks.map((data, i) => {
+            return (
+              <li key={i} className={data.cName} onClick={showSidebar}>
+                <HashLink smooth to={data.path}>
+                  <span>{data.title}</span>
+                </HashLink>
               </li>
             );
           })}
