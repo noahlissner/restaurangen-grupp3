@@ -5,7 +5,7 @@ import kebabTwo from "../../assets/kebab-2.jpeg";
 import kebabThree from "../../assets/kebab-3.jpeg";
 import grabbarna from "../../assets/doners-soner.jpeg";
 import geolocation from "../../assets/geolocation.png";
-// import logo_placeholder from "../../assets/logo-placeholder.png";
+import logo_placeholder from "../../assets/logo-placeholder.png";
 
 export const Home = () => {
   return (
@@ -70,7 +70,7 @@ export const Home = () => {
       <div id="footer">
         <div className="footer-container">
           <div className="footer-logo-container">
-            <img src={""} alt="" />
+            <img src={logo_placeholder} alt="" />
           </div>
           <div className="footer-find-us">
             <h2>FIND US</h2>
