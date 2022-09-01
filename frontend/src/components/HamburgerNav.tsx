@@ -8,6 +8,7 @@ import {
 } from "../services/HamburgerData";
 import * as FaIcons from "react-icons/fa";
 import * as IoIcons from "react-icons/io5";
+import logo_placeholder from "../assets/logo-placeholder.png";
 
 export const HamburgerNav = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -17,6 +18,9 @@ export const HamburgerNav = () => {
   return (
     <>
       <div className="navbar">
+        <div className="logo-container">
+          <img src={logo_placeholder} alt="bild på logotyp" />
+        </div>
         <Link to="#" className="menu-bars">
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
