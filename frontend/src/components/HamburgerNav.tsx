@@ -19,7 +19,9 @@ export const HamburgerNav = () => {
     <>
       <div className="navbar">
         <div className="logo-container">
-          <img src={logo_placeholder} alt="bild på logotyp" />
+          <Link to={"/"}>
+            <img src={logo_placeholder} alt="bild på logotyp" />
+          </Link>
         </div>
         <Link to="#" className="menu-bars">
           <FaIcons.FaBars onClick={showSidebar} />
