@@ -3,8 +3,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./components/pages/Home";
-import { Booking } from "./components/pages/Booking";
 import { NotFound } from "./components/NotFound";
+import { Booking } from "./components/pages/Booking";
 
 // make a function to get calender date
 function getCalenderDate() {
@@ -43,18 +43,18 @@ function getThisMonthDates() {
 function App() {
   const [calenderDate, setCalenderDate] = React.useState(getThisMonthDates());
   return (
-  <>
-    <div className="App">{calenderDate}</div>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />}></Route>
-          <Route path="/booking" element={<Booking />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </>
+    <>
+      <div className="App">{calenderDate}</div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />}></Route>
+            <Route path="/booking" element={<Booking />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
