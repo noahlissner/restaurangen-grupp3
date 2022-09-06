@@ -1,8 +1,9 @@
+import "../styles/About.scss";
 import grabbarna from ".././assets/doners-soner.jpeg";
 
 export const About = () => {
   return (
-    <>
+    <div className="about-wrapper">
       <div className="about-img-container">
         <img src={grabbarna} alt="bild på ägarna" />
       </div>
@@ -21,6 +22,6 @@ export const About = () => {
           mer och mer. Nu räcker de nog.
         </p>
       </div>
-    </>
+    </div>
   );
 };

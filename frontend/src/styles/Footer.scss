@@ -1,0 +1,50 @@
+#footer {
+    margin: 50px 0;
+    .footer-container {
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+        flex-flow: column;
+        padding: 0 40px;
+
+        .footer-logo-container {
+            width: 100%;
+            img {
+                width: 120px;
+            }
+        }
+
+        div {
+            margin: 15px 0;
+        }
+
+        h2 {
+            font-weight: 100;
+        }
+
+        span {
+            color: white;
+            font-size: 16px;
+        }
+        
+        .lg-text {
+            border-bottom: 1px solid gray;
+        }
+
+        .sm-text {
+            font-size: 14px;
+        }
+    }
+}
+
+@media only screen and (min-width: 915px) {
+    #footer{
+        .footer-container {
+            flex-flow: row;
+            gap: 100px;
+            .footer-logo-container {
+                width: 40%;
+            }
+        }
+    }
+}
