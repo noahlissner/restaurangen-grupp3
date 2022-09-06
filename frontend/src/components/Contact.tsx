@@ -1,8 +1,9 @@
+import "../styles/Contact.scss";
 import geolocation from ".././assets/geolocation.png";
 
 export const Contact = () => {
   return (
-    <>
+    <div className="contact-wrapper">
       <div className="contact-text-container">
         <h1>CONTACT</h1>
         <div className="contact-info-container">
@@ -27,6 +28,6 @@ export const Contact = () => {
           alt="bild på karta med adress där resturangen ligger"
         />
       </div>
-    </>
+    </div>
   );
 };

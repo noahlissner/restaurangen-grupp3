@@ -16,7 +16,7 @@ export const HamburgerNav = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <>
+    <div className="hamburger-wrapper">
       <div className="navbar">
         <div className="logo-container">
           <Link to={"/"}>
@@ -54,6 +54,6 @@ export const HamburgerNav = () => {
           })}
         </ul>
       </nav>
-    </>
+    </div>
   );
 };
