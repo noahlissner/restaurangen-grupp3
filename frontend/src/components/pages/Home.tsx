@@ -6,6 +6,8 @@ import kebabThree from "../../assets/kebab-3.jpeg";
 import { Footer } from "../Footer";
 import { Contact } from "../Contact";
 import { About } from "../About";
+import { useState } from "react";
+import { IBooking } from "../../models/IBooking";
 
 export const Home = () => {
   return (

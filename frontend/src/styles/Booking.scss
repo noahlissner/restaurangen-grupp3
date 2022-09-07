@@ -1,3 +1,93 @@
 .booking-wrapper {
-    margin-top: 60px;
+    margin-top: 100px;
+
+    .react-calendar {
+        padding: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+        gap: 30px;
+
+        .react-calendar__navigation {
+            display: flex;
+            gap: 15px;
+            button {
+                font-size: 1.5rem;
+                color: white;
+                border: none;
+                background-color: black;
+                text-transform: uppercase;
+            }
+            .react-calendar__navigation__arrow {
+                font-size: 3rem;
+            }
+        }
+    }
+
+    .react-calendar__viewContainer {
+        .react-calendar__month-view {
+            .react-calendar__month-view__weekdays {
+                margin-bottom: 6px;
+                color: white;
+                .react-calendar__month-view__weekdays__weekday {
+                    abbr {
+                        text-decoration: none;
+                    }
+                }
+            }
+            .react-calendar__month-view__days {
+                button {
+                    width: 40px;
+                    height: 50px;
+                    color: white;
+                    border: 1px solid white;
+                    background-color: black;
+                    transition: 350ms;
+                }
+
+                button:hover {
+                    color: black;
+                    background-color: #FFEF62;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .booking-btns {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row;
+        gap: 60px;
+
+        .booking-btns-cancel {
+            color: white;
+            border: 1px solid #FFEF62;
+            background-color: black;
+        }
+
+        .booking-btns-pick {
+            color: black;
+            border: 1px solid #FFEF62;
+            background-color: #FFEF62;
+
+        }
+
+        button {
+            cursor: pointer;
+            padding: 9px 14px 9px 14px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: 350ms;
+
+            &:hover {
+                color: black;
+                background-color: #FFEF62;
+            }
+        }
+
+    }
 }
