@@ -21,7 +21,6 @@ export const Booking = () => {
   const [nextScreen, setNextScreen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-
   const handleScreenOneSubmit = (e: any) => {
     e.preventDefault();
     setLoading(true);
@@ -46,7 +45,7 @@ export const Booking = () => {
   };
 
   return (
-    <>
+    <div className="booking-wrapper">
       {!nextScreen ? (
         <BookingScreenOne
           onSubmit={handleScreenOneSubmit}
@@ -62,7 +61,7 @@ export const Booking = () => {
           onSubmit={handleScreenTwoSubmit}
         />
       )}
-       {/* <div className="booking-wrapper">
+      {/* <div className="booking-wrapper">
       <Calendar
         onChange={setDate}
         minDate={today}
@@ -76,6 +75,6 @@ export const Booking = () => {
         <button className="booking-btns-pick">Pick Date</button>
       </div>
     </div> */}
-    </>
+    </div>
   );
-}
+};

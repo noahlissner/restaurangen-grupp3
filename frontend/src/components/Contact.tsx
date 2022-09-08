@@ -18,7 +18,9 @@ export const Contact = () => {
             <span className="lg-text">08 - 12 34 56</span>
           </div>
           <div>
-            <span className="lg-text">Mailadresstilloss@donerssoner.com</span>
+            <span className="lg-text contact-email">
+              Mailadresstilloss@donerssoner.com
+            </span>
           </div>
         </div>
       </div>
