@@ -46,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-calendar": "^3.5.2",
+    "@types/react-router-hash-link": "^2.4.5"
   }
 }

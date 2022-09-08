@@ -3,8 +3,14 @@ import "../../styles/Booking.scss";
 import { useState } from "react";
 import axios from "axios";
 import BookingScreenTwo from "../../containers/BookingScreenTwo";
+// import { Calendar } from "react-calendar";
+// import { format, startOfDay, startOfToday } from "date-fns";
 
 export const Booking = () => {
+  // let today = startOfToday();
+  // const [date, setDate] = useState(today);
+
+  // console.log(format(date, "EEEE do MMMM yyyy"));
   const [quantity, setQuantity] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -14,6 +20,7 @@ export const Booking = () => {
 
   const [nextScreen, setNextScreen] = useState(false);
   const [loading, setLoading] = useState(false);
+
 
   const handleScreenOneSubmit = (e: any) => {
     e.preventDefault();
@@ -55,6 +62,20 @@ export const Booking = () => {
           onSubmit={handleScreenTwoSubmit}
         />
       )}
+       {/* <div className="booking-wrapper">
+      <Calendar
+        onChange={setDate}
+        minDate={today}
+        navigationLabel={({ date }) => `${format(date, "MMMM")}`}
+        next2Label={null}
+        prev2Label={null}
+        value={date}
+      />
+      <div className="booking-btns">
+        <button className="booking-btns-cancel">Cancel</button>
+        <button className="booking-btns-pick">Pick Date</button>
+      </div>
+    </div> */}
     </>
   );
-};
+}

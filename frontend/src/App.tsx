@@ -3,8 +3,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./components/pages/Home";
-import { Booking } from "./components/pages/Booking";
 import { NotFound } from "./components/NotFound";
+import { Booking } from "./components/pages/Booking";
 
 // make a function to get calender date
 // function getCalenderDate() {
