@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Cookies } from "react-cookie";
+import { LoginContainer, LoginButton } from "../styled/adminStyled";
+import { InputField } from "../styled/InputField";
+import { ErrorMessage } from "./errorComponent";
 
 /**
  * Admin login component.
@@ -16,6 +19,7 @@ export const AdminLogin = (): JSX.Element => {
   const cookies = new Cookies();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState({ message: "", state: false });
 
   const handleChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.currentTarget.name === "username") {
@@ -24,6 +28,8 @@ export const AdminLogin = (): JSX.Element => {
       setPassword(e.currentTarget.value);
     }
     if (e.key === "Enter") {
+      console.log(username, password);
+
       handleClick();
     }
   };
@@ -39,33 +45,38 @@ export const AdminLogin = (): JSX.Element => {
           cookies.set("token", res.data.token);
         }
       })
-      .then(() => {
+      .then((res) => {
         window.location.reload();
       })
       .catch((err) => {
         console.log(err.response.data);
+        setError({ message: err.response.data.message, state: true });
       });
   };
 
   return (
     <>
-      <input
-        type="text"
-        name="username"
-        placeholder="username"
-        onKeyUp={(e) => {
-          handleChange(e);
-        }}
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="password"
-        onKeyUp={(e) => {
-          handleChange(e);
-        }}
-      />
-      <input type="submit" value="Login" onClick={handleClick} />{" "}
+      <LoginContainer>
+        {error.state ? (
+          <ErrorMessage state={error.state} msg={error.message} />
+        ) : null}
+        <InputField
+          error={error.state}
+          type="text"
+          label="Username"
+          handleChange={handleChange}
+          autofocus
+        />
+        <InputField
+          error={error.state}
+          type="password"
+          label="Password"
+          handleChange={handleChange}
+        />
+        <LoginButton type="submit" color="green" onClick={handleClick}>
+          Login
+        </LoginButton>
+      </LoginContainer>
     </>
   );
 };

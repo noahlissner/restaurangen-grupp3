@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { IncomingHttpHeaders } from "http";
 const jwt = require("jsonwebtoken");
 
 /**

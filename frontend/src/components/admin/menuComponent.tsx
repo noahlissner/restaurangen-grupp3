@@ -1,3 +1,5 @@
+import { MenuItem } from "./menuItemComponent";
+
 /**
  * Admin menu component.
  *
@@ -9,7 +11,12 @@
 export const AdminMenu = () => {
   return (
     <>
-      <div>menu</div>
+      <div className="menu">
+        <MenuItem type="dashboard" />
+        <MenuItem type="search" />
+        <MenuItem type="calendar" />
+        <MenuItem type="create" />
+      </div>
     </>
   );
 };

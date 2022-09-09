@@ -29,7 +29,7 @@ export const adminLogin = async (req: Request, res: Response) => {
     });
   } else {
     res.status(406).json({
-      message: "Wrong credentials",
+      message: "Wrong credentials.",
     });
   }
 };
