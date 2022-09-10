@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
+import cors from "cors";
 
 import bookingRouter from "./routes/bookingRoutes";
 import adminRouter from "./routes/adminRoutes";
@@ -20,6 +21,7 @@ app.use((req: Request, res: Response, next: Function) => {
   res.header("Access-Control-Allow-Methods", "*");
   next();
 });
+app.use(cors());
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Express");
