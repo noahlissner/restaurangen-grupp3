@@ -1,6 +1,15 @@
 import { Request, Response } from "express";
 import { Booking } from "../../models/bookingModel";
 
+interface IBooking {
+  date: string;
+  time: number;
+  quantity: number;
+  tables: number;
+  bookingID: string;
+  customer: any;
+}
+
 export const searchBooking = async (req: Request, res: Response) => {
   const { quantity, date } = req.body;
 
@@ -8,7 +17,7 @@ export const searchBooking = async (req: Request, res: Response) => {
 
   const currentBookings = await Booking.find({ date });
 
-  console.log(currentBookings);
+  // console.log(currentBookings);
 
-  res.send("Search Booking");
+  res.send(currentBookings);
 };
