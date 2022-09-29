@@ -6,10 +6,18 @@ interface IProps {
   name: Dispatch<SetStateAction<string>>;
   email: Dispatch<SetStateAction<string>>;
   phone: Dispatch<SetStateAction<string>>;
+  availableTables: any;
   onSubmit: (e: FormEvent) => void;
 }
 
-const BookingScreenTwo = ({ time, name, email, phone, onSubmit }: IProps) => {
+const BookingScreenTwo = ({
+  time,
+  name,
+  email,
+  phone,
+  onSubmit,
+  availableTables,
+}: IProps) => {
   const [timeChecked, setTimeChecked] = useState("");
 
   const handleRadioChange = (e: any) => {
@@ -22,6 +30,8 @@ const BookingScreenTwo = ({ time, name, email, phone, onSubmit }: IProps) => {
     if (e.target.name === "email") email(e.target.value);
     if (e.target.name === "phone") phone(e.target.value);
   };
+
+  console.log(availableTables);
 
   return (
     <section className="bookingTwo">
@@ -66,6 +76,7 @@ const BookingScreenTwo = ({ time, name, email, phone, onSubmit }: IProps) => {
                 onChange={handleRadioChange}
                 title="18:00"
                 name="time"
+                disabled={availableTables.available_18 ? false : true}
               />
               <BookingRadio
                 value="21"
@@ -73,6 +84,7 @@ const BookingScreenTwo = ({ time, name, email, phone, onSubmit }: IProps) => {
                 onChange={handleRadioChange}
                 title="21:00"
                 name="time"
+                disabled={availableTables.available_21 ? false : true}
               />
             </div>
           </div>

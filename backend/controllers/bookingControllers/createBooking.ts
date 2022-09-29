@@ -9,6 +9,19 @@ export const createBooking = async (req: Request, res: Response) => {
   const { date, time, quantity, tables, bookingID, name, email, phone } =
     req.body;
 
+  if (
+    !date ||
+    !time ||
+    !quantity ||
+    !tables ||
+    !bookingID ||
+    !name ||
+    !email ||
+    !phone
+  ) {
+    return res.status(400).json({ message: "Please fill in all fields" });
+  }
+
   const foundCustomer = await Customer.findOne({ email });
 
   if (foundCustomer) {

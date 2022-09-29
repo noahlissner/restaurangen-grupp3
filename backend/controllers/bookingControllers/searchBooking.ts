@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { CalcAvailable } from "../../helpers/CalcAvailable";
 import { Booking } from "../../models/bookingModel";
 
 interface IBooking {
@@ -13,11 +14,15 @@ interface IBooking {
 export const searchBooking = async (req: Request, res: Response) => {
   const { quantity, date } = req.body;
 
-  console.log(quantity, date);
+  if (!quantity || !date) {
+    return res.status(400).json({ message: "Please fill in all fields" });
+  }
 
-  const currentBookings = await Booking.find({ date });
+  const currentBookings: IBooking[] = await Booking.find({ date });
 
-  // console.log(currentBookings);
+  const available = CalcAvailable(currentBookings, quantity);
 
-  res.send(currentBookings);
+  console.log(available);
+
+  res.send(available);
 };
