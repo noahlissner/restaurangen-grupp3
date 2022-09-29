@@ -31,8 +31,6 @@ const BookingScreenTwo = ({
     if (e.target.name === "phone") phone(e.target.value);
   };
 
-  console.log(availableTables);
-
   return (
     <section className="bookingTwo">
       <div className="bookingTwo__container">

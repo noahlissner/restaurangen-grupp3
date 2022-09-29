@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Booking } from "../../models/bookingModel";
 import { Customer } from "../../models/customerModel";
+import validator from "validator";
 
 // @desc    Create a new booking
 // @route   POST /api/bookings
@@ -20,6 +21,16 @@ export const createBooking = async (req: Request, res: Response) => {
     !phone
   ) {
     return res.status(400).json({ message: "Please fill in all fields" });
+  }
+
+  if (!validator.isEmail(email)) {
+    return res.status(400).json({ message: "Please enter a valid email" });
+  }
+
+  if (!validator.isMobilePhone(phone)) {
+    return res
+      .status(400)
+      .json({ message: "Please enter a valid phone number" });
   }
 
   const foundCustomer = await Customer.findOne({ email });

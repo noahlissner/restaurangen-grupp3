@@ -2,6 +2,12 @@
 // Booking Screen One
 /////////////////////
 .booking-wrapper {
+  .booking-error {
+    color: rgb(255, 76, 76);
+    font-size: 18px;
+    text-align: center;
+  }
+
   margin-top: 100px;
   .bookingOne {
     font-family: "Inter", sans-serif;

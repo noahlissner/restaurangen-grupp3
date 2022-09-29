@@ -3,6 +3,8 @@ import "../../styles/Booking.scss";
 import { useState } from "react";
 import axios from "axios";
 import BookingScreenTwo from "../../containers/BookingScreenTwo";
+import Confirmation from "../Confirmation";
+import { IBooking } from "../../models/IBooking";
 
 export const Booking = () => {
   const [quantity, setQuantity] = useState("");
@@ -17,6 +19,14 @@ export const Booking = () => {
   const [availableTables, setAvailableTables] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [booking, setBooking] = useState<IBooking>({
+    date: "",
+    time: "",
+    bookingID: "",
+    quantity: 0,
+    tables: 0,
+    customer: "",
+  });
 
   const handleScreenOneSubmit = (e: any) => {
     e.preventDefault();
@@ -36,14 +46,13 @@ export const Booking = () => {
         }
       })
       .catch(function (error) {
-        console.log(error);
+        setError(error.response.data.message);
       });
   };
 
   const handleScreenTwoSubmit = (e: any) => {
     e.preventDefault();
-
-    console.log(quantity, date, time, name, email, phone);
+    setError("");
 
     axios
       .post("http://localhost:5000/api/booking/create", {
@@ -58,16 +67,17 @@ export const Booking = () => {
       })
       .then(function (response) {
         console.log(response);
+        setBooking(response.data.data);
         setShowConfirmation(true);
       })
       .catch(function (error) {
-        console.log(error);
+        setError(error.response.data.message);
       });
   };
 
   return (
     <div className="booking-wrapper">
-      <p className="booking_error">{error}</p>
+      <p className="booking-error">{error}</p>
       {!nextScreen ? (
         <BookingScreenOne
           onSubmit={handleScreenOneSubmit}
@@ -84,6 +94,7 @@ export const Booking = () => {
           availableTables={availableTables}
         />
       )}
+      {showConfirmation && <Confirmation booking={booking} />}
     </div>
   );
 };
