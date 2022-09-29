@@ -66,7 +66,6 @@ export const Booking = () => {
         bookingID: Math.floor(Math.random() * 1000000),
       })
       .then(function (response) {
-        console.log(response);
         setBooking(response.data.data);
         setShowConfirmation(true);
       })

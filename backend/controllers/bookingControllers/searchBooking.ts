@@ -22,7 +22,5 @@ export const searchBooking = async (req: Request, res: Response) => {
 
   const available = CalcAvailable(currentBookings, quantity);
 
-  console.log(available);
-
   res.send(available);
 };
