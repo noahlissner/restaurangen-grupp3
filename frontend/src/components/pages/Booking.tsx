@@ -20,6 +20,7 @@ export const Booking = () => {
 
   const [nextScreen, setNextScreen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleScreenOneSubmit = (e: any) => {
     e.preventDefault();
@@ -42,6 +43,28 @@ export const Booking = () => {
 
   const handleScreenTwoSubmit = (e: any) => {
     e.preventDefault();
+
+    console.log(quantity, date, time, name, email, phone);
+
+    axios
+      .post("http://localhost:5000/api/booking/create", {
+        quantity,
+        date,
+        time,
+        tables: Math.ceil(parseInt(quantity) / 6),
+        name,
+        email,
+        phone,
+        bookingID: Math.floor(Math.random() * 1000000),
+      })
+      .then(function (response) {
+        console.log(response);
+        setLoading(true);
+        setShowConfirmation(true);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (

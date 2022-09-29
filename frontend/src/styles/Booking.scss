@@ -2,81 +2,82 @@
 // Booking Screen One
 /////////////////////
 .booking-wrapper {
-margin-top: 100px;
+  margin-top: 100px;
   .bookingOne {
     font-family: "Inter", sans-serif;
     color: #fff;
     display: flex;
     justify-content: center;
-  
+
     & h1 {
       font-size: 32px;
       font-weight: 900;
       text-align: center;
     }
-  
+
     &__container {
       max-width: 500px;
       width: 100%;
       padding: 24px;
-  
+
       &__form-wrapper {
         display: flex;
         justify-content: start;
         flex-direction: column;
         gap: 30px;
-  
+
         &__h4 {
           font-weight: 500;
         }
-  
+
         &__submit {
           background-color: #f0e700;
           border: none;
           width: 200px;
           height: 40px;
-  
+          border-radius: 4px;
+
           font-weight: 700;
           font-size: 14px;
-  
+
           margin-top: 30px;
         }
       }
     }
-  
+
     & .bookingOne-radio-container {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
       max-width: 180px;
-  
+
       &__custom {
         width: 75px;
         display: flex;
         justify-content: center;
-  
+
         & > input {
           width: 50px;
           height: 35px;
-  
+
           outline: none;
           border: none;
           border-bottom: 1px solid #f0e700;
           background-color: transparent;
-  
+
           color: #fff;
           text-align: center;
           font-family: inherit;
           font-size: 12px;
           font-weight: 700;
-  
+
           &::placeholder {
             color: #fff;
             opacity: 1;
             font-family: inherit;
           }
-  
+
           &::-webkit-outer-spin-button,
           &::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -85,7 +86,7 @@ margin-top: 100px;
         }
       }
     }
-  
+
     .bookingOne-date-container {
       display: flex;
       align-items: center;
@@ -94,7 +95,7 @@ margin-top: 100px;
       max-width: 190px;
     }
   }
-  
+
   /////////////////////
   // Booking Screen Two
   /////////////////////
@@ -103,32 +104,35 @@ margin-top: 100px;
     color: #fff;
     display: flex;
     justify-content: center;
-  
+
     & h1 {
       font-size: 32px;
       font-weight: 900;
       text-align: center;
     }
-  
+
     &__container {
       max-width: 500px;
       width: 100%;
       padding: 24px;
-  
+
       &__form-wrapper {
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        gap: 20px;
+
         & .bookingTwo__input-container {
           display: flex;
           flex-direction: column;
           gap: 10px;
-  
+
           & > div {
             display: flex;
             justify-content: space-between;
             gap: 20px;
           }
-  
+
           & .bookingTwo-text-input {
             border: none;
             background-color: transparent;
@@ -136,12 +140,12 @@ margin-top: 100px;
             outline: none;
             padding: 10px 0px;
             width: 100%;
-  
+
             font-family: inherit;
             color: #fff;
             font-weight: 500;
             font-size: 16px;
-  
+
             &::placeholder {
               font-weight: 500;
               color: #fff;
@@ -150,10 +154,32 @@ margin-top: 100px;
             }
           }
         }
+        & .bookingTwo__radio-container {
+          display: flex;
+          flex-direction: column;
+
+          & > div {
+            display: flex;
+            gap: 10px;
+          }
+        }
+
+        &__submit {
+          background-color: #f0e700;
+          border: none;
+          width: 200px;
+          height: 40px;
+          border-radius: 4px;
+
+          font-weight: 700;
+          font-size: 14px;
+
+          margin-top: 20px;
+        }
       }
     }
   }
-  
+
   ////////
   // Radio
   ////////
@@ -162,25 +188,25 @@ margin-top: 100px;
     border: 1px solid #f0e700;
     padding: 10px 12px;
     border-radius: 4px;
-  
+
     & > input {
       display: none;
     }
-  
+
     & > span {
       font-weight: 900;
       font-size: 14px;
     }
   }
-  
+
   .booking-radio.isChecked {
     background-color: #f0e700;
   }
-  
+
   .booking-radio > span.isChecked {
     color: #000;
   }
-  
+
   //////////////
   // Date picker
   //////////////
@@ -194,7 +220,7 @@ margin-top: 100px;
     font-family: inherit;
     font-weight: bold;
   }
-  
+
   input[type="date"]::-webkit-calendar-picker-indicator {
     //display: none;
     //-webkit-appearance: none;
