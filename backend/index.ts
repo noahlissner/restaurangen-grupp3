@@ -6,7 +6,9 @@ import cors from "cors";
 import bookingRouter from "./routes/bookingRoutes";
 import adminRouter from "./routes/adminRoutes";
 
-dotenv.config();
+dotenv.config({
+  override: true,
+});
 
 connectDB();
 

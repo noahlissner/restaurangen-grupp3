@@ -67,6 +67,7 @@ export const Button = styled.button`
   background-color: #fff;
   transition: var(--transition);
   align-self: flex-end;
+  -webkit-tap-highlight-color: transparent;
   &:hover {
     border: var(--border-focus);
   }
@@ -117,6 +118,7 @@ export const Card = styled.div`
   box-shadow: var(--box-shadow);
   transition: var(--transition-fast);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   &:hover {
     box-shadow: var(--box-shadow-hover);
     transform: var(--transform-hover);
@@ -151,6 +153,7 @@ export const IconContainer = styled.div`
   box-shadow: var(--box-shadow);
   transition: var(--transition-fast);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   &:hover {
     box-shadow: var(--box-shadow-hover);
     transform: var(--transform-hover);
@@ -221,6 +224,7 @@ export const CalendarDate = styled.div`
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition: var(--transition-fast);
   &:hover {
     box-shadow: var(--box-shadow-hover);

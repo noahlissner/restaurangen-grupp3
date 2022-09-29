@@ -28,8 +28,6 @@ export const AdminLogin = (): JSX.Element => {
       setPassword(e.currentTarget.value);
     }
     if (e.key === "Enter") {
-      console.log(username, password);
-
       handleClick();
     }
   };

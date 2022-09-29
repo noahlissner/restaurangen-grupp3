@@ -1,6 +1,8 @@
 import { Card, Text } from "../styled/adminStyled";
+import { IBooking } from "../../models/IBooking";
+import { ICustomer } from "../../models/ICustomer";
 
-interface IBooking {
+interface IBookings {
   booking_id: number;
   name: string;
   customer_id: number;
@@ -10,7 +12,7 @@ interface IBooking {
   date: Date;
 }
 
-export const BookingCard = ({ booking }: { booking: IBooking }) => {
+export const BookingCard = ({ booking }: { booking: IBookings }) => {
   return (
     <>
       <Card>

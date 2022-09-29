@@ -17,16 +17,12 @@ export const CalendarDateComponent = ({ props }: IProps) => {
   const { month, setMonth } = useContext(MonthContext);
 
   const handleClick = () => {
-    console.log(props.date);
-    console.log(format(month, "M"));
-    console.log(format(props.date, "M"));
     if (
       compareAsc(
         parseInt(format(month, "M")),
         parseInt(format(props.date, "M"))
       ) === -1
     ) {
-      console.log("ac");
       setMonth(addMonths(month, 1));
     } else if (
       compareAsc(
@@ -34,7 +30,6 @@ export const CalendarDateComponent = ({ props }: IProps) => {
         parseInt(format(props.date, "M"))
       ) === 1
     ) {
-      console.log("dec");
       setMonth(subMonths(month, 1));
     }
     setDate(props.date);
