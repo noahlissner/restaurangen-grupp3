@@ -10,6 +10,10 @@ import {
 import { CalendarDates } from "./calendarDatesComponent";
 import { ChevronComponent } from "./chevronComponent";
 
+interface ISource {
+  source: "calendar" | "create";
+}
+
 export const DateContext = createContext({
   date: startOfToday(),
   setDate: (date: Date) => {},
@@ -20,7 +24,7 @@ export const MonthContext = createContext({
   setMonth: (month: Date) => {},
 });
 
-export const AdminCalendar = () => {
+export const AdminCalendar = ({ source }: ISource) => {
   const [today, setToday] = useState(startOfToday());
   const [month, setMonth] = useState(startOfMonth(startOfToday()));
   const dateValue = useMemo(
@@ -74,9 +78,11 @@ export const AdminCalendar = () => {
             </CalendarDays>
             <CalendarDates />
           </CalendarContainer>
-          <Text>
-            Bokningar {format(today, "EEEE d MMMM yyy", { locale: sv })}.
-          </Text>
+          {source === "calendar" && (
+            <Text>
+              Bokningar {format(today, "EEEE d MMMM yyy", { locale: sv })}.
+            </Text>
+          )}
         </DateContext.Provider>
       </MonthContext.Provider>
     </>

@@ -27,7 +27,7 @@ export const AdminContent = () => {
     case Menu.Calendar:
       return (
         <>
-          <AdminCalendar />
+          <AdminCalendar source="calendar" />
         </>
       );
     case Menu.Search:
@@ -39,7 +39,8 @@ export const AdminContent = () => {
     case Menu.Create:
       return (
         <>
-          <Heading>Create</Heading>
+          <Heading>Skapa ny bokning.</Heading>
+          <AdminCalendar source="create" />
         </>
       );
     default:

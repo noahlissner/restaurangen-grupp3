@@ -18,6 +18,13 @@ body {
   height: 100%;
 }
 
+html {
+  background-color: initial;
+  color: initial;
+  font-size: initial;
+  box-sizing: initial;
+}
+
 ul[role="list"],
 ol[role="list"] {
   list-style: none;

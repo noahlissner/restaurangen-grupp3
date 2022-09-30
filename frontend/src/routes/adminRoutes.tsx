@@ -1,4 +1,5 @@
 import axios from "axios";
+// import "../scss/main.scss";
 import { useEffect, useState } from "react";
 import { Cookies } from "react-cookie";
 import { AdminDashboard } from "../components/admin/dashboardComponent";
@@ -15,6 +16,7 @@ import { AdminLogin } from "../components/admin/loginComponent";
  */
 
 export const AdminRoute = (): JSX.Element => {
+  require("../scss/main.scss");
   const cookies = new Cookies();
   const [token, setToken] = useState(cookies.get("token"));
 
