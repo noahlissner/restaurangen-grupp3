@@ -3,14 +3,10 @@ import "../../styles/Booking.scss";
 import { useState } from "react";
 import axios from "axios";
 import BookingScreenTwo from "../../containers/BookingScreenTwo";
-// import { Calendar } from "react-calendar";
-// import { format, startOfDay, startOfToday } from "date-fns";
+import Confirmation from "../Confirmation";
+import { IBooking } from "../../models/IBooking";
 
 export const Booking = () => {
-  // let today = startOfToday();
-  // const [date, setDate] = useState(today);
-
-  // console.log(format(date, "EEEE do MMMM yyyy"));
   const [quantity, setQuantity] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -19,12 +15,22 @@ export const Booking = () => {
   const [phone, setPhone] = useState("");
 
   const [nextScreen, setNextScreen] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [availableTables, setAvailableTables] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [booking, setBooking] = useState<IBooking>({
+    date: "",
+    time: "",
+    bookingID: "",
+    quantity: 0,
+    tables: 0,
+    customer: "",
+  });
 
   const handleScreenOneSubmit = (e: any) => {
     e.preventDefault();
-    setLoading(true);
+    setError("");
 
     axios
       .post("http://localhost:5000/api/booking/search", {
@@ -32,19 +38,21 @@ export const Booking = () => {
         date,
       })
       .then(function (response) {
-        console.log(response);
-        setLoading(true);
-        setNextScreen(true);
+        setAvailableTables(response.data);
+        if (response.data.available_18 || response.data.available_21) {
+          setNextScreen(true);
+        } else {
+          setError("Inga lediga bord på valt datum.");
+        }
       })
       .catch(function (error) {
-        console.log(error);
+        setError(error.response.data.message);
       });
   };
 
   const handleScreenTwoSubmit = (e: any) => {
     e.preventDefault();
-
-    console.log(quantity, date, time, name, email, phone);
+    setError("");
 
     axios
       .post("http://localhost:5000/api/booking/create", {
@@ -58,17 +66,17 @@ export const Booking = () => {
         bookingID: Math.floor(Math.random() * 1000000),
       })
       .then(function (response) {
-        console.log(response);
-        setLoading(true);
+        setBooking(response.data.data);
         setShowConfirmation(true);
       })
       .catch(function (error) {
-        console.log(error);
+        setError(error.response.data.message);
       });
   };
 
   return (
     <div className="booking-wrapper">
+      <p className="booking-error">{error}</p>
       {!nextScreen ? (
         <BookingScreenOne
           onSubmit={handleScreenOneSubmit}
@@ -82,22 +90,10 @@ export const Booking = () => {
           email={setEmail}
           phone={setPhone}
           onSubmit={handleScreenTwoSubmit}
+          availableTables={availableTables}
         />
       )}
-      {/* <div className="booking-wrapper">
-      <Calendar
-        onChange={setDate}
-        minDate={today}
-        navigationLabel={({ date }) => `${format(date, "MMMM")}`}
-        next2Label={null}
-        prev2Label={null}
-        value={date}
-      />
-      <div className="booking-btns">
-        <button className="booking-btns-cancel">Cancel</button>
-        <button className="booking-btns-pick">Pick Date</button>
-      </div>
-    </div> */}
+      {showConfirmation && <Confirmation booking={booking} />}
     </div>
   );
 };

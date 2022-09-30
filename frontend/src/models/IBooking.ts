@@ -5,13 +5,15 @@ export interface IBooking {
   time: string;
   quantity: number;
   tables: number;
-  customer: ICustomer;
+  customer: String;
+  bookingID: string;
 }
 
 export const defaultValue: IBooking = {
   date: "",
   time: "",
+  bookingID: "",
   quantity: 0,
   tables: 0,
-  customer: { name: "", email: "", phone: "" },
+  customer: "",
 };

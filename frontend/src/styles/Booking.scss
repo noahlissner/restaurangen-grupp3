@@ -2,6 +2,12 @@
 // Booking Screen One
 /////////////////////
 .booking-wrapper {
+  .booking-error {
+    color: rgb(255, 76, 76);
+    font-size: 18px;
+    text-align: center;
+  }
+
   margin-top: 100px;
   .bookingOne {
     font-family: "Inter", sans-serif;
@@ -188,6 +194,7 @@
     border: 1px solid #f0e700;
     padding: 10px 12px;
     border-radius: 4px;
+    cursor: pointer;
 
     & > input {
       display: none;
@@ -197,6 +204,11 @@
       font-weight: 900;
       font-size: 14px;
     }
+  }
+
+  .booking-radio--disabled {
+    cursor: default;
+    opacity: 0.3;
   }
 
   .booking-radio.isChecked {
