@@ -36,7 +36,7 @@ export const AdminRoute = (): JSX.Element => {
           if (err.response.data.message === "Unauthorized") {
             cookies.remove("token");
             setToken(undefined);
-            window.location.reload();
+            window.location.href = "http://localhost:3000/admin";
           }
         });
     }

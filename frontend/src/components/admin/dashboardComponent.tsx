@@ -1,4 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import { BookingComponent } from "./bookingComponent";
 import { AdminContent } from "./contentComponent";
 import { AdminMenu } from "./menuComponent";
 
@@ -24,13 +26,15 @@ export const ContentContext = createContext<ContextValue>(Menu.Dashboard);
 export const AdminDashboard = () => {
   // eslint-disable-next-line
   const [content, setContent] = useState<Menu>(Menu.Dashboard);
-  // console.log(content);
 
   return (
     <>
       <ContentContext.Provider value={[content, setContent]}>
         <div className="content">
-          <AdminContent />
+          <Routes>
+            <Route index element={<AdminContent />} />
+            <Route path="/booking/:bookingID" element={<BookingComponent />} />
+          </Routes>
         </div>
         <AdminMenu />
       </ContentContext.Provider>

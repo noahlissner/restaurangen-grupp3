@@ -1,20 +1,14 @@
+import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import { BookingCard } from "./bookingCard";
+import { IBooking } from "../../models/IBooking";
+import { ICustomer } from "../../models/ICustomer";
+import { Text } from "../styled/adminStyled";
 
 type search = string;
 
 interface IProps {
   list: "today" | "tomorrow" | search | Date;
-}
-
-interface IBooking {
-  booking_id: number;
-  name: string;
-  customer_id: number;
-  phone: string;
-  email: string;
-  quantity: number;
-  date: Date;
 }
 
 export const Bookings = ({ list }: IProps) => {
@@ -24,50 +18,34 @@ export const Bookings = ({ list }: IProps) => {
     // eslint-disable-next-line
     const getBookings = async () => {
       const response = await fetch(
-        `http://localhost:2500/api/bookings/${list}`
+        `http://localhost:2500/api/booking/get?q=${
+          list === "today"
+            ? format(new Date(), "yyyy-MM-dd")
+            : list === "tomorrow"
+            ? format(new Date(new Date().getTime() + 86400000), "yyyy-MM-dd")
+            : list
+        }`
       );
       const data = await response.json();
+
       setBookings(data);
     };
+    getBookings();
     // getBookings(); SÄTTS PÅ NÄR BACKEND ÄR KLAR
-    setBookings([
-      {
-        booking_id: 1,
-        name: "Test",
-        customer_id: 1,
-        phone: "0701234567",
-        email: "asd",
-        quantity: 1,
-        date: new Date(),
-      },
-      {
-        booking_id: 2,
-        name: "Test2",
-        customer_id: 2,
-        phone: "0701234567",
-        email: "asd",
-        quantity: 1,
-        date: new Date(),
-      },
-      {
-        booking_id: 3,
-        name: "Test3",
-        customer_id: 3,
-        phone: "0701234567",
-        email: "asd",
-        quantity: 1,
-        date: new Date(),
-      },
-    ]);
+
     // eslint-disable-next-line
-  }, []);
+  }, [list]);
 
   return (
     <>
       <div className="bookings">
-        {bookings.map((booking) => (
-          <BookingCard key={booking.booking_id} booking={booking} />
-        ))}
+        {bookings.length > 0 ? (
+          bookings.map((booking) => (
+            <BookingCard key={booking.bookingID} booking={booking} />
+          ))
+        ) : (
+          <Text dim>Just nu finns det inga bokningar.</Text>
+        )}
       </div>
     </>
   );

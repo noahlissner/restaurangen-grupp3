@@ -15,7 +15,7 @@ function App() {
           <Route path="/booking" element={<Booking />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Route>
-        <Route path="/admin" element={<AdminRoute />}></Route>
+        <Route path="/admin/*" element={<AdminRoute />}></Route>
       </Routes>
     </>
   );

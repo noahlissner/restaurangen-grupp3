@@ -21,12 +21,13 @@ export const AdminContent = () => {
           <Heading>Dagens bokningar.</Heading>
           <Bookings list="today" />
           <Heading>Morgondagens bokningar.</Heading>
-          <Text dim>Just nu finns det inga bokningar.</Text>
+          <Bookings list="tomorrow" />
         </>
       );
     case Menu.Calendar:
       return (
         <>
+          <Heading>Kalender.</Heading>
           <AdminCalendar source="calendar" />
         </>
       );
@@ -34,6 +35,7 @@ export const AdminContent = () => {
       return (
         <>
           <Heading>Search</Heading>
+          <Text dim>Denna funktion finns ej ännu.</Text>
         </>
       );
     case Menu.Create:

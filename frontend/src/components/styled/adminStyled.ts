@@ -5,6 +5,9 @@ interface IProps {
   align?: "flex-start" | "flex-end" | "center";
   today?: boolean;
   active?: boolean;
+  halfWidth?: boolean;
+  fullWidth?: boolean;
+  expand?: boolean;
 }
 
 interface IChevronProps {
@@ -30,6 +33,8 @@ interface IDateProps {
   selected?: boolean;
   disabled?: boolean;
   today?: boolean;
+  right?: boolean;
+  left?: boolean;
 }
 
 export const LoginContainer = styled.div`
@@ -80,6 +85,8 @@ export const Button = styled.button`
 export const InputContainer = styled.div`
   position: relative;
   width: 100%;
+  ${(props: IProps) => props.fullWidth && "grid-column: 1 / -1;"}
+  ${(props: IProps) => props.halfWidth && "grid-column: span 3;"}
 `;
 
 export const LoginButton = styled(Button)``;
@@ -112,6 +119,14 @@ export const Card = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
   min-width: 150px;
+  ${(props: IProps) =>
+    props.expand &&
+    `
+    position: fixed;
+    width: 90vw;
+    height: 90vh;
+    z-index: 100;
+  `}
   padding: var(--padding-sm);
   border: var(--border-focus);
   border-radius: var(--border-radius);
@@ -128,19 +143,6 @@ export const Card = styled.div`
     transform: var(--transform-active);
   }
 `;
-
-// Hur ska ikonen visas?
-// * Ikonen ska visas inuti en div.
-// * Divens storlek ska vara 50x50px.
-// * Divens bakgrundsfärg ska vara #fff.
-// * Divens border-radius ska vara var(--border-radius).
-// * Divens box-shadow ska vara var(--box-shadow).
-// * Divens interaktioner ska vara:
-//   * :hover -hover i ändelse på box-shadow och transform via css-variabler.
-//   * :active -active i ändelse på box-shadow och transform via css-variabler.
-// * Ikonen ska visas i mitten av divens y/x-led.
-// * Ikonen ska ha en färg som är #000.
-// * Ikonen ska ha en storlek på 35x35px.
 
 export const IconContainer = styled.div`
   display: flex;
@@ -286,5 +288,100 @@ export const ChevronRight = styled(Chevron)`
   }
   &:active {
     transform: var(--transform-active-inv);
+  }
+`;
+
+export const QuantityContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+  width: min(100%, 600px);
+`;
+
+export const CredentialsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+  width: min(100%, 600px);
+`;
+
+export const SelectQuantity = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
+  ${(props: IDateProps) => props.right && "grid-column: 5/7;"}
+  ${(props: IDateProps) => props.left && "grid-column: 5/7;"}
+  opacity: ${(props: IDateProps) => (props.disabled ? "0.4" : "1")};
+  ${(props: IDateProps) => props.disabled && "pointer-events:none;"}
+  width: 100%;
+  height: 50px;
+  user-select: none;
+  border: var(--border-focus);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--transition-fast);
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: var(--transform-hover);
+  }
+  ${(props: IDateProps) =>
+    props.selected &&
+    `
+    box-shadow: var(--box-shadow-selected);
+    transform: var(--transform-selected);
+    &:hover {
+      box-shadow: var(--box-shadow-selected);
+    transform: var(--transform-selected);
+    }
+
+  `}
+  &:active {
+    box-shadow: var(--box-shadow-active);
+    transform: var(--transform-active);
+  }
+`;
+
+export const SelectQuantityInput = styled.input`
+  ${(props: IDateProps) => props.right && "grid-column: 5/7;"}
+  ${(props: IDateProps) => props.left && "grid-column: 1/5;"}
+
+  outline: none;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  user-select: none;
+  border: var(--border-focus);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: var(--transition-fast);
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: var(--transform-hover);
+  }
+  ${(props: IDateProps) =>
+    props.selected &&
+    `
+    box-shadow: var(--box-shadow-selected);
+    transform: var(--transform-selected);
+    &:hover {
+      box-shadow: var(--box-shadow-selected);
+    transform: var(--transform-selected);
+    }
+
+  `}
+  &:active {
+    box-shadow: var(--box-shadow-active);
+    transform: var(--transform-active);
   }
 `;

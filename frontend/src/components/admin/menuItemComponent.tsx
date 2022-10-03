@@ -15,9 +15,12 @@ export const MenuItem = ({ type }: IMenuItemProps) => {
       <IconContainer
         onClick={() => {
           setContent(type as Menu);
+          if (window.location.href !== `http://localhost:3000/admin/`) {
+            window.location.href = `http://localhost:3000/admin/`;
+          }
         }}
       >
-        <Icon srcSet={`./assets/svg/${type}.svg`} />
+        <Icon srcSet={`http://localhost:3000/assets/svg/${type}.svg`} />
       </IconContainer>
     </>
   );
