@@ -1,6 +1,6 @@
-//////////////////////
-// Booking Screen One
-/////////////////////
+/////////////////////////
+// Booking Screen One //
+///////////////////////
 .booking-wrapper {
   .booking-error {
     color: rgb(255, 76, 76);
@@ -28,7 +28,7 @@
 
       &__form-wrapper {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         flex-direction: column;
         gap: 30px;
 

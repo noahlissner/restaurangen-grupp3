@@ -17,7 +17,6 @@ export const Booking = () => {
   const [nextScreen, setNextScreen] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [availableTables, setAvailableTables] = useState({});
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [booking, setBooking] = useState<IBooking>({
     date: "",
@@ -33,7 +32,7 @@ export const Booking = () => {
     setError("");
 
     axios
-      .post("http://localhost:5000/api/booking/search", {
+      .post("http://localhost:2500/api/booking/search", {
         quantity,
         date,
       })
@@ -47,6 +46,7 @@ export const Booking = () => {
       })
       .catch(function (error) {
         setError(error.response.data.message);
+        console.log(error.response.data.message);
       });
   };
 
@@ -55,7 +55,7 @@ export const Booking = () => {
     setError("");
 
     axios
-      .post("http://localhost:5000/api/booking/create", {
+      .post("http://localhost:2500/api/booking/create", {
         quantity,
         date,
         time,

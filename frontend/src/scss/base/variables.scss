@@ -1,0 +1,36 @@
+:root {
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-green: #b7f686;
+  --color-error: #dc3535;
+  --color-blue: #cedfee;
+
+  --font-size-sm: 12px;
+  --font-size-md: 16px;
+  --font-size-lg: 22px;
+
+  --padding-sm: 0.5rem;
+  --padding-md: 1rem;
+  --padding-lg: 1.6rem;
+
+  --border: 1px solid #ccc;
+  --border-radius: 8px;
+  --border-focus: 1px solid #404040;
+  --border-error: 1px solid var(--color-error);
+
+  --box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.16);
+  --box-shadow-hover: 1.25px 2.5px 5px 0px rgba(0, 0, 0, 0.13);
+  --box-shadow-selected: 0.5px 1.5px 3.5px 0px rgba(0, 0, 0, 0.75);
+  --box-shadow-active: 0.5px 1.2px 1.75px 0px rgba(0, 0, 0, 0.9);
+
+  --transform-hover: translate(-1px, -1px);
+  --transform-selected: translate(1px, 1px);
+  --transform-active: translate(2px, 2px);
+
+  --transform-hover-inv: translate(1px, -1px);
+  --transform-active-inv: translate(-1px, 1px);
+
+  --transition-fast: all 0.08s ease-in-out;
+  --transition: all 0.25s ease-in-out;
+  --transition-slow: all 0.66s ease-in-out;
+}

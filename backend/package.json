@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/jsonwebtoken": "^8.5.9",
+    "cookie-parser": "^1.4.6",
+    "jsonwebtoken": "^8.5.1",
     "@types/validator": "^13.7.5",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",

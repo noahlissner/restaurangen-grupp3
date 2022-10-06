@@ -1,4 +1,5 @@
 import "../../styles/Home.scss";
+
 import Carousel from "nuka-carousel";
 import kebabOne from "../../assets/kebab-1.jpeg";
 import kebabTwo from "../../assets/kebab-2.jpeg";
@@ -6,8 +7,6 @@ import kebabThree from "../../assets/kebab-3.jpeg";
 import { Footer } from "../Footer";
 import { Contact } from "../Contact";
 import { About } from "../About";
-import { useState } from "react";
-import { IBooking } from "../../models/IBooking";
 
 export const Home = () => {
   return (
